@@ -1,17 +1,14 @@
 // 1. PAGE NAVIGATION LOGIC
 function openInvite() {
+function openInvite() {
     const loadingScreen = document.getElementById('loading-screen');
     const mainDashboard = document.getElementById('main-dashboard');
-    
-    // Smooth transition
-    loadingScreen.style.opacity = '0';
-    setTimeout(() => {
-        loadingScreen.classList.add('hidden');
-        mainDashboard.classList.remove('hidden');
-        // Start counting down immediately once dashboard shows
-        startCountdown();
-    }, 400);
+
+    loadingScreen.style.display = 'none';
+    mainDashboard.style.display = 'block';
+    startCountdown();
 }
+
 
 // 2. DYNAMIC COUNTDOWN TIMER
 function startCountdown() {
