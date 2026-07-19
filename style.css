@@ -1,0 +1,182 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: #0d0d0d;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+/* Background Image Overlay */
+.bg-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Replace with your image link or assets path later */
+    background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
+                url('assets/images/coaster_bg.jpg') center/cover no-repeat;
+    z-index: -1;
+    transition: filter 1s ease;
+}
+
+/* Layout Containers */
+.card-container {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Glassmorphism Card Styling */
+.glass-card {
+.glass-card {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 20px; /* Reduced from 30px for better mobile spacing */
+    width: 100%;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+
+/* Typography & Accent Colors */
+.gold-text {
+    color: #D4AF37; /* Premium Gold */
+    font-size: 2rem;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+p {
+    color: #cccccc;
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+}
+
+.date-highlight {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 20px;
+}
+
+/* Countdown Display */
+.countdown-container {
+    background: rgba(212, 175, 55, 0.1);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 25px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #D4AF37;
+    letter-spacing: 0.5px;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
+    margin-bottom: 25px;
+}
+
+/* Interactive Form Styling */
+form {
+    text-align: left;
+}
+
+form h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+label {
+    display: block;
+    font-size: 0.9rem;
+    color: #aaaaaa;
+    margin-bottom: 8px;
+    margin-top: 15px;
+}
+
+input[type="text"], select, textarea {
+    width: 100%;
+    padding: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus, select:focus, textarea:focus {
+    border-color: #D4AF37;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+textarea {
+    height: 80px;
+    resize: none;
+}
+
+/* Call to Action Buttons */
+.action-btn {
+    width: 100%;
+    padding: 14px;
+    background: linear-gradient(135deg, #D4AF37, #AA7C11);
+    border: none;
+    border-radius: 50px;
+    color: #000000;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(212, 175, 55, 0.5);
+}
+
+.action-btn:active {
+    transform: translateY(1px);
+}
+
+.send-btn {
+    margin-top: 25px;
+}
+
+/* Smooth Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
