@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Invitation</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Background Image Container -->
+    <div class="bg-overlay"></div>
+
+    <!-- 1. LOADING / INTRO SCREEN -->
+    <div id="loading-screen" class="card-container">
+        <div class="glass-card central-card">
+            <h1 class="gold-text">Hey Beautiful...</h1>
+            <p>I set up something special for us.</p>
+            <button onclick="openInvite()" class="action-btn">Tap to Open Invite</button>
+        </div>
+    </div>
+
+    <!-- 2. MAIN DASHBOARD (Hidden initially) -->
+    <div id="main-dashboard" class="card-container hidden">
+        <div class="glass-card">
+            <h2 class="gold-text">Gold Reef City</h2>
+            <p class="date-highlight">August 22nd, 2026</p>
+            
+            <!-- Countdown Section -->
+            <div class="countdown-container">
+                <div id="countdown">Calculating time...</div>
+            </div>
+
+            <hr class="divider">
+
+            <!-- Special Requests Form -->
+            <form id="request-form">
+                <h3>Make a Wish ✨</h3>
+                
+                <label for="rides">Ride Style:</label>
+                <select id="rides" name="rides">
+                    <option value="thrill">Thrill Seeker (Anaconda! 🎢)</option>
+                    <option value="relaxed">Relaxed & Fun</option>
+                </select>
+
+                <label for="snacks">Snack/Food Requests:</label>
+                <input type="text" id="snacks" name="snacks" placeholder="Any specific treats you want?">
+
+                <label for="notes">Special Notes:</label>
+                <textarea id="notes" name="notes" placeholder="Anything else to make it perfect?"></textarea>
+
+                <button type="submit" class="action-btn send-btn">Submit Requests</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
