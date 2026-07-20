@@ -172,7 +172,7 @@
             margin-top: 15px;
         }
 
-        input[type="text"], textarea {
+        input[type="text"], input[type="time"], textarea {
             width: 100%;
             padding: 12px;
             background: rgba(255, 255, 255, 0.1);
@@ -181,6 +181,12 @@
             color: #ffffff;
             font-size: 1rem;
             outline: none;
+        }
+
+        /* Custom styling for HTML5 time picker icon on dark background */
+        input[type="time"]::-webkit-calendar-picker-indicator {
+            filter: invert(1);
+            cursor: pointer;
         }
 
         textarea {
@@ -261,10 +267,16 @@
             <form id="request-form" action="https://formspree.io/f/mrenkkjd" method="POST">
                 <h3>Date Wishlist ✨</h3>
 
+                <label for="pickuptime">⏰ Preferred Departure / Pickup Time:</label>
+                <input type="time" id="pickuptime" name="pickuptime" required>
+
                 <label for="snacks">Must-Have Snacks or Treats:</label>
                 <input type="text" id="snacks" name="snacks" placeholder="e.g., Slushies, Churros, Cotton Candy..." required>
 
-                <label for="notes">Anything specific you want us to do?</label>
+                <label for="afterhours">🔥 After-Hours Request (Off the record):</label>
+                <input type="text" id="afterhours" name="afterhours" placeholder="e.g., Back massage, road head, quick pitstop on the way home...">
+
+                <label for="notes">Anything specific you want us to do at the park?</label>
                 <textarea id="notes" name="notes" placeholder="Any specific spots or things you want to hit?"></textarea>
 
                 <button type="submit" class="action-btn">Send Wishlist ❤️</button>
