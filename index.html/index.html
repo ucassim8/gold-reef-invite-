@@ -6,7 +6,136 @@
     <title>A Special Invitation</title>
     <link rel="stylesheet" href="./style.css">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Invitation</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        }
+
+        body {
+            background-color: #0d0d0d;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .bg-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
+                        url('assets/images/coaster_bg.jpg') center/cover no-repeat;
+            z-index: -1;
+        }
+
+        .card-container {
+            width: 100%;
+            max-width: 450px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+        }
+
+        .gold-text {
+            color: #D4AF37;
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #cccccc;
+            font-size: 1.1rem;
+            margin-bottom: 25px;
+        }
+
+        .date-highlight {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #ffffff;
+            margin-bottom: 20px;
+        }
+
+        .countdown-container {
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 25px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #D4AF37;
+        }
+
+        .divider {
+            border: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+            margin-bottom: 25px;
+        }
+
+        form {
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 0.9rem;
+            color: #aaaaaa;
+            margin-bottom: 8px;
+            margin-top: 15px;
+        }
+
+        input[type="text"], select, textarea {
+            width: 100%;
+            padding: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1rem;
+            outline: none;
+        }
+
+        textarea {
+            height: 80px;
+            resize: none;
+        }
+
+        .action-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #D4AF37, #AA7C11);
+            border: none;
+            border-radius: 50px;
+            color: #000000;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 15px;
+        }
+    </style>
 </head>
+
 <body>
 
     <!-- Background Image Container -->
