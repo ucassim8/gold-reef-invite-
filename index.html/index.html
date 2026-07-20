@@ -92,19 +92,59 @@
             color: #D4AF37;
         }
 
-        .itinerary {
-            display: flex;
-            justify-content: space-around;
+        /* Itinerary Styling */
+        .itinerary-box {
             background: rgba(255, 255, 255, 0.05);
-            border-radius: 10px;
-            padding: 12px 5px;
-            margin-bottom: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            margin-bottom: 15px;
+            text-align: left;
         }
 
-        .itinerary p {
-            margin-bottom: 0;
-            font-size: 0.9rem;
+        .itinerary-title {
+            text-align: center;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #D4AF37;
+            margin-bottom: 10px;
+        }
+
+        .itinerary-step {
+            font-size: 0.95rem;
             color: #e0e0e0;
+            margin-bottom: 8px;
+        }
+
+        .itinerary-step:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Funny Warning Box */
+        .warning-card {
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px dashed rgba(212, 175, 55, 0.5);
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 0.88rem;
+            color: #f0f0f0;
+            line-height: 1.4;
+            margin-bottom: 12px;
+            text-align: center;
+        }
+
+        /* Secret VIP Card */
+        .secret-card {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            font-size: 0.88rem;
+            color: #f0e6d2;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(212, 175, 55, 0.15);
         }
 
         .divider {
@@ -195,11 +235,24 @@
                 <div id="countdown">Calculating...</div>
             </div>
 
-            <!-- Itinerary Highlights -->
-            <div class="itinerary">
-                <p>🎢 Rides</p>
-                <p>🍿 Treats</p>
-                <p>✨ Memories</p>
+            <!-- Mini Itinerary Timeline -->
+            <div class="itinerary-box">
+                <p class="itinerary-title">✨ Game Plan for the Day ✨</p>
+                <div class="itinerary-step">🎢 <span>Thrill Rides & Coasters</span></div>
+                <div class="itinerary-step">🍔 <span>Lunch & Treats Break</span></div>
+                <div class="itinerary-step">🕹️ <span>4D Theater & Games</span></div>
+            </div>
+
+            <!-- Funny Footwear Warning -->
+            <div class="warning-card">
+                ⚠️ <strong>Important Date Rule:</strong><br>
+                Please, for the love of everything, <u>DO NOT</u> wear slides/flip-flops unless you want to watch them fly off into another dimension on the Anaconda! 👟😂
+            </div>
+
+            <!-- Secret VIP Rule -->
+            <div class="secret-card">
+                🔥 <strong>VIP Rule #2 (Off The Record):</strong><br>
+                Underwear is strictly optional... driver might need a quick refueling stop at any given moment! 😉⛽
             </div>
 
             <hr class="divider">
