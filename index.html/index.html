@@ -4,12 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>A Special Invitation</title>
-    <link rel="stylesheet" href="./style.css">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Special Invitation</title>
     <style>
         /* Reset and Base Styles */
         * {
@@ -29,6 +23,7 @@
             padding: 20px;
         }
 
+        /* Background Image Overlay */
         .bg-overlay {
             position: fixed;
             top: 0;
@@ -36,7 +31,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.85)), 
-                        url('assets/Images/coaster_bg.jpg') center/cover no-repeat;
+                        url('./assets/Images/coaster_bg.jpg') center/cover no-repeat;
             z-index: -1;
         }
 
@@ -65,14 +60,14 @@
         p {
             color: #cccccc;
             font-size: 1.1rem;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         .date-highlight {
             font-size: 1.3rem;
             font-weight: bold;
             color: #ffffff;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .countdown-container {
@@ -80,21 +75,42 @@
             border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 12px;
             padding: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             font-size: 1.2rem;
             font-weight: 600;
             color: #D4AF37;
+        }
+
+        .itinerary {
+            display: flex;
+            justify-content: space-around;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 12px 5px;
+            margin-bottom: 20px;
+        }
+
+        .itinerary p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: #e0e0e0;
         }
 
         .divider {
             border: 0;
             height: 1px;
             background: rgba(255, 255, 255, 0.2);
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
 
         form {
             text-align: left;
+        }
+
+        form h3 {
+            text-align: center;
+            margin-bottom: 15px;
+            color: #ffffff;
         }
 
         label {
@@ -105,7 +121,7 @@
             margin-top: 15px;
         }
 
-        input[type="text"], select, textarea {
+        input[type="text"], textarea {
             width: 100%;
             padding: 12px;
             background: rgba(255, 255, 255, 0.1);
@@ -131,109 +147,113 @@
             font-size: 1.1rem;
             font-weight: bold;
             cursor: pointer;
-            margin-top: 15px;
+            margin-top: 20px;
         }
     </style>
 </head>
-
 <body>
 
-    <!-- Background Image Container -->
     <div class="bg-overlay"></div>
 
-    <!-- 1. LOADING / INTRO SCREEN -->
+    <!-- 1. INTRO CARD -->
     <div id="loading-screen" class="card-container">
-        <div class="glass-card central-card">
+        <div class="glass-card">
             <h1 class="gold-text">Hey Beautiful...</h1>
             <p>I set up something special for us.</p>
-            <button onclick="openInvite()" class="action-btn">Tap to Open Invite</button>
+            <button class="action-btn">Tap to Open Invite</button>
         </div>
     </div>
 
-    <!-- 2. MAIN DASHBOARD (Hidden initially) -->
-<div id="main-dashboard" style="display: none;">
-
+    <!-- 2. MAIN DASHBOARD CARD -->
+    <div id="main-dashboard" class="card-container" style="display: none;">
         <div class="glass-card">
             <h2 class="gold-text">Gold Reef City</h2>
-            <p class="date-highlight">August 22nd, 2026</p>
+            <p class="date-highlight">Wednesday, July 22nd 🎡</p>
             
-            <!-- Countdown Section -->
+            <!-- Live Countdown -->
             <div class="countdown-container">
-                <div id="countdown">Calculating time...</div>
+                <div id="countdown">Calculating...</div>
+            </div>
+
+            <!-- Itinerary Highlights -->
+            <div class="itinerary">
+                <p>🎢 Rides</p>
+                <p>🍿 Treats</p>
+                <p>✨ Memories</p>
             </div>
 
             <hr class="divider">
 
-            <!-- Special Requests Form -->
+            <!-- Personalized Wishlist Form -->
             <form id="request-form">
-                <h3>Make a Wish ✨</h3>
-                
-                <label for="rides">Ride Style:</label>
-                <select id="rides" name="rides">
-                    <option value="thrill">Thrill Seeker (Anaconda! 🎢)</option>
-                    <option value="relaxed">Relaxed & Fun</option>
-                </select>
+                <h3>Date Wishlist ✨</h3>
 
-                <label for="snacks">Snack/Food Requests:</label>
-                <input type="text" id="snacks" name="snacks" placeholder="Any specific treats you want?">
+                <label for="snacks">Must-Have Snacks or Treats:</label>
+                <input type="text" id="snacks" name="snacks" placeholder="e.g., Slushies, Churros, Cotton Candy...">
 
-                <label for="notes">Special Notes:</label>
-                <textarea id="notes" name="notes" placeholder="Anything else to make it perfect?"></textarea>
+                <label for="notes">Anything specific you want us to do?</label>
+                <textarea id="notes" name="notes" placeholder="Any specific spots or things you want to hit?"></textarea>
 
-                <button type="submit" class="action-btn send-btn">Submit Requests</button>
+                <button type="submit" class="action-btn">Send Wishlist ❤️</button>
             </form>
         </div>
     </div>
 
     <script>
-    // Direct Event Listener for Mobile Tap/Click
-    document.addEventListener('DOMContentLoaded', function() {
-        const btn = document.querySelector('.action-btn');
-        if (btn) {
-            btn.addEventListener('click', openInvite);
-            btn.addEventListener('touchend', openInvite); // Mobile fallback
-        }
-    });
-
-    function openInvite(e) {
-        if (e) e.preventDefault();
-        
-        const loadingScreen = document.getElementById('loading-screen');
-        const mainDashboard = document.getElementById('main-dashboard');
-        
-        if (loadingScreen && mainDashboard) {
-            loadingScreen.style.display = 'none';
-            mainDashboard.style.display = 'block';
-            startCountdown();
-        }
-    }
-
-    function startCountdown() {
-        // Target Date: August 22, 2026 at 09:00 AM
-        const targetDate = new Date('August 22, 2026 09:00:00').getTime();
-
-        const timerInterval = setInterval(function() {
-            const now = new Date().getTime();
-            const difference = targetDate - now;
-
-            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
-
-            const countdownElement = document.getElementById('countdown');
-
-            if (countdownElement) {
-                if (difference < 0) {
-                    clearInterval(timerInterval);
-                    countdownElement.innerHTML = "It's Date Day! 🎢✨";
-                } else {
-                    countdownElement.innerHTML = days + "d : " + hours + "h : " + minutes + "m : " + seconds + "s";
-                }
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.querySelector('#loading-screen .action-btn');
+            if (btn) {
+                btn.addEventListener('click', openInvite);
+                btn.addEventListener('touchend', openInvite);
             }
-        }, 1000);
-    }
-</script>
 
+            const form = document.getElementById('request-form');
+            if (form) {
+                form.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    alert("✨ Wishlist Saved! Can't wait for Wednesday ❤️");
+                });
+            }
+        });
+
+        function openInvite(e) {
+            if (e) e.preventDefault();
+            
+            const loadingScreen = document.getElementById('loading-screen');
+            const mainDashboard = document.getElementById('main-dashboard');
+            
+            if (loadingScreen && mainDashboard) {
+                loadingScreen.style.display = 'none';
+                mainDashboard.style.display = 'block';
+                startCountdown();
+            }
+        }
+
+        function startCountdown() {
+            // FIXED TARGET DATE: July 22, 2026 at 09:00 AM
+            const targetDate = new Date('July 22, 2026 09:00:00').getTime();
+
+            const timerInterval = setInterval(function() {
+                const now = new Date().getTime();
+                const difference = targetDate - now;
+
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+                const countdownElement = document.getElementById('countdown');
+
+                if (countdownElement) {
+                    if (difference < 0) {
+                        clearInterval(timerInterval);
+                        countdownElement.innerHTML = "It's Date Day! 🎢✨";
+                    } else {
+                        countdownElement.innerHTML = days + "d : " + hours + "h : " + minutes + "m : " + seconds + "s";
+                    }
+                }
+            }, 1000);
+        }
+    </script>
 </body>
 </html>
